@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Day Kept For You</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================================================
+         BACKGROUND
+    =================================================== -->
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+
+    <!-- ==================================================
+         MUSIC
+    =================================================== -->
+
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- ==================================================
+         MUSIC BUTTON
+    =================================================== -->
+
+    <button class="music-button" id="musicButton" onclick="toggleMusic()">
+        ♫
+    </button>
+
+
+    <!-- ==================================================
+         PIN SCREEN
+    =================================================== -->
+
+    <section class="pin-screen" id="pinScreen">
+
+        <div class="pin-container">
+
+            <div class="time-mark">
+                11:11
+            </div>
+
+            <p class="eyebrow">
+                A PRIVATE LITTLE PLACE
+            </p>
+
+            <h1>
+                This day was<br>
+                <em>kept for you.</em>
+            </h1>
+
+            <p class="pin-description">
+                Ada beberapa hal kecil di dalam sini.
+                Tapi semuanya cuma bisa dibuka
+                oleh seseorang yang tahu kuncinya.
+            </p>
+
+
+            <div class="pin-dots" id="pinDots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="pin-display" id="pinDisplay">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+            </div>
+
+
+            <div class="pin-pad">
+
+                <button onclick="enterPin('1')">1</button>
+                <button onclick="enterPin('2')">2</button>
+                <button onclick="enterPin('3')">3</button>
+
+                <button onclick="enterPin('4')">4</button>
+                <button onclick="enterPin('5')">5</button>
+                <button onclick="enterPin('6')">6</button>
+
+                <button onclick="enterPin('7')">7</button>
+                <button onclick="enterPin('8')">8</button>
+                <button onclick="enterPin('9')">9</button>
+
+                <button class="empty-key"></button>
+                <button onclick="enterPin('0')">0</button>
+                <button onclick="deletePin()">⌫</button>
+
+            </div>
+
+
+            <p class="pin-hint" id="pinHint">
+                four little numbers
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MAIN WEBSITE
+    =================================================== -->
+
+    <main id="mainContent">
+
+
+        <!-- ==================================================
+             INTRO
+        =================================================== -->
+
+        <section class="intro-section">
+
+            <div class="intro-top">
+
+                <span>
+                    14.09.2026
+                </span>
+
+                <span>
+                    FOR DEANDRA
+                </span>
+
+            </div>
+
+
+            <div class="intro-center">
+
+                <p class="eyebrow">
+                    FROM AKBAR
+                </p>
+
+                <h2>
+                    A day,<br>
+                    <em>kept for you.</em>
+                </h2>
+
+                <p>
+                    Bukan sesuatu yang besar.
+                    Cuma beberapa hal kecil yang
+                    ingin aku simpan di satu tempat.
+                </p>
+
+                <button
+                    class="begin-button"
+                    onclick="scrollToSection('memorySection')"
+                >
+                    Start exploring
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <div class="intro-bottom">
+                <span>SCROLL TO EXPLORE</span>
+                <span>↓</span>
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PROGRESS
+        =================================================== -->
+
+        <div class="progress-bar">
+
+            <div class="progress-left">
+                <span id="progressCount">0</span>
+                <span>/ 4 opened</span>
+            </div>
+
+            <div class="progress-line">
+                <div id="progressFill"></div>
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             MEMORY SECTION
+        =================================================== -->
+
+        <section
+            class="content-section memory-section"
+            id="memorySection"
+        >
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    SOMETHING I KEPT
+                </p>
+
+                <h2>
+                    A few<br>
+                    <em>memories.</em>
+                </h2>
+
+                <p>
+                    Jangan buru-buru dibuka.
+                    Pilih satu kartu yang paling
+                    bikin kamu penasaran.
+                </p>
+
+            </div>
+
+
+            <div class="memory-grid">
+
+
+                <!-- MEMORY 1 -->
+
+                <button
+                    class="memory-card"
+                    onclick="openMemory(this, 1)"
+                >
+
+                    <div class="memory-front">
+
+                        <span>01</span>
+
+                        <strong>look closer</strong>
+
+                        <small>tap to reveal</small>
+
+                    </div>
+
+
+                    <div class="memory-back">
+
+                        <img src="foto1.jpg" alt="Memory 1">
+
+                        <div>
+
+                            <span>01</span>
+
+                            <p>
+                                One of my favorite moments.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- MEMORY 2 -->
+
+                <button
+                    class="memory-card"
+                    onclick="openMemory(this, 2)"
+                >
+
+                    <div class="memory-front">
+
+                        <span>02</span>
+
+                        <strong>another one</strong>
+
+                        <small>tap to reveal</small>
+
+                    </div>
+
+
+                    <div class="memory-back">
+
+                        <img src="foto2.jpg" alt="Memory 2">
+
+                        <div>
+
+                            <span>02</span>
+
+                            <p>
+                                Somehow, this one stayed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- MEMORY 3 -->
+
+                <button
+                    class="memory-card"
+                    onclick="openMemory(this, 3)"
+                >
+
+                    <div class="memory-front">
+
+                        <span>03</span>
+
+                        <strong>remember this?</strong>
+
+                        <small>tap to reveal</small>
+
+                    </div>
+
+
+                    <div class="memory-back">
+
+                        <img src="foto3.jpg" alt="Memory 3">
+
+                        <div>
+
+                            <span>03</span>
+
+                            <p>
+                                I would choose this memory again.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- MEMORY 4 -->
+
+                <button
+                    class="memory-card"
+                    onclick="openMemory(this, 4)"
+                >
+
+                    <div class="memory-front">
+
+                        <span>04</span>
+
+                        <strong>one more</strong>
+
+                        <small>tap to reveal</small>
+
+                    </div>
+
+
+                    <div class="memory-back">
+
+                        <img src="foto4.jpg" alt="Memory 4">
+
+                        <div>
+
+                            <span>04</span>
+
+                            <p>
+                                A little piece of us.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </button>
+
+
+            </div>
+
+
+            <p class="section-note">
+                You don't have to remember everything.
+                Just remember how it felt.
+            </p>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FEELINGS SECTION
+        =================================================== -->
+
+        <section
+            class="content-section feelings-section"
+            id="feelingsSection"
+        >
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    THINGS I DON'T ALWAYS SAY
+                </p>
+
+                <h2>
+                    Little<br>
+                    <em>feelings.</em>
+                </h2>
+
+                <p>
+                    Ada beberapa kalimat yang mungkin
+                    jarang aku bilang langsung.
+                </p>
+
+            </div>
+
+
+            <div class="feeling-list">
+
+
+                <button
+                    class="feeling-item"
+                    onclick="revealFeeling(this)"
+                >
+
+                    <div>
+                        <span>01</span>
+                        <strong>When I miss you</strong>
+                    </div>
+
+                    <span class="plus">+</span>
+
+                    <p>
+                        Kadang aku cuma ingin ngobrol
+                        sama kamu lebih lama,
+                        walaupun sebenarnya nggak ada
+                        topik yang penting.
+                    </p>
+
+                </button>
+
+
+
+                <button
+                    class="feeling-item"
+                    onclick="revealFeeling(this)"
+                >
+
+                    <div>
+                        <span>02</span>
+                        <strong>When you make me laugh</strong>
+                    </div>
+
+                    <span class="plus">+</span>
+
+                    <p>
+                        Hal kecil yang kamu lakukan
+                        sering banget berhasil bikin
+                        hari aku jadi lebih baik.
+                    </p>
+
+                </button>
+
+
+
+                <button
+                    class="feeling-item"
+                    onclick="revealFeeling(this)"
+                >
+
+                    <div>
+                        <span>03</span>
+                        <strong>When I see our photos</strong>
+                    </div>
+
+                    <span class="plus">+</span>
+
+                    <p>
+                        Aku suka melihat kembali
+                        hal-hal yang pernah kita lewati.
+                        Rasanya seperti mengulang
+                        cerita yang sama dengan senyum.
+                    </p>
+
+                </button>
+
+
+
+                <button
+                    class="feeling-item"
+                    onclick="revealFeeling(this)"
+                >
+
+                    <div>
+                        <span>04</span>
+                        <strong>When I realize it's you</strong>
+                    </div>
+
+                    <span class="plus">+</span>
+
+                    <p>
+                        Dari sekian banyak orang,
+                        aku senang ternyata orang
+                        yang aku pilih adalah kamu.
+                    </p>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             LETTER SECTION
+        =================================================== -->
+
+        <section
+            class="content-section letter-section"
+            id="letterSection"
+        >
+
+            <div class="section-number">
+                03
+            </div>
+
+
+            <div class="letter-intro">
+
+                <p class="eyebrow">
+                    SOMETHING YOU CAN KEEP
+                </p>
+
+                <h2>
+                    One letter.<br>
+                    <em>Just for you.</em>
+                </h2>
+
+                <p>
+                    Jangan dibuka kalau kamu belum siap
+                    baca sesuatu yang sedikit cheesy.
+                </p>
+
+            </div>
+
+
+            <!-- ENVELOPE -->
+
+            <button
+                class="envelope"
+                id="envelope"
+                onclick="openLetter()"
+            >
+
+                <div class="envelope-back"></div>
+
+                <div class="envelope-paper">
+
+                    <span>
+                        A LETTER
+                    </span>
+
+                    <strong>
+                        FOR DEANDRA
+                    </strong>
+
+                </div>
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-seal">
+                    ♥
+                </div>
+
+            </button>
+
+
+            <!-- LETTER CONTENT -->
+
+            <div
+                class="hidden-letter"
+                id="hiddenLetter"
+            >
+
+                <div class="letter-date">
+                    FROM AKBAR
+                </div>
+
+                <h3>
+                    Dear Deandra,
+                </h3>
+
+                <p>
+                    Happy Boyfriend Day, sayang.
+                </p>
+
+                <p>
+                    Aku tahu mungkin ini cuma sebuah
+                    website kecil, tapi aku membuatnya
+                    karena ada banyak hal yang kadang
+                    lebih mudah aku tulis daripada aku
+                    ucapkan langsung.
+                </p>
+
+                <p>
+                    Terima kasih karena sudah menjadi
+                    seseorang yang selalu punya tempat
+                    sendiri di hidup aku. Terima kasih
+                    untuk cerita, tawa, perhatian,
+                    dan semua hal kecil yang mungkin
+                    kamu anggap biasa.
+                </p>
+
+                <p>
+                    Kalau suatu hari kamu lupa betapa
+                    berartinya kamu buat aku, balik lagi
+                    ke sini. Baca bagian ini sekali lagi.
+                </p>
+
+                <p class="letter-highlight">
+                    Aku tetap akan memilih kamu. ♡
+                </p>
+
+                <div class="letter-sign">
+                    — Akbar
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PICK ONE GAME
+        =================================================== -->
+
+        <section
+            class="content-section choice-section"
+            id="choiceSection"
+        >
+
+            <div class="section-number">
+                04
+            </div>
+
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    A LITTLE GAME
+                </p>
+
+                <h2>
+                    Pick one.<br>
+                    <em>Don't overthink.</em>
+                </h2>
+
+                <p>
+                    Pilih jawaban yang menurut kamu
+                    paling mungkin dipilih Akbar.
+                </p>
+
+            </div>
+
+
+            <div class="choice-game" id="choiceGame">
+
+                <div class="question-number">
+                    QUESTION <span id="questionNumber">01</span> / 05
+                </div>
+
+                <h3 id="questionText">
+                    Kalau kita punya waktu kosong,
+                    Akbar lebih pilih...
+                </h3>
+
+
+                <div class="choices">
+
+                    <button onclick="answerChoice(0)">
+                        <span>A</span>
+                        Jalan berdua
+                    </button>
+
+                    <button onclick="answerChoice(1)">
+                        <span>B</span>
+                        Rebahan sambil call
+                    </button>
+
+                </div>
+
+
+                <p
+                    class="choice-result"
+                    id="choiceResult"
+                ></p>
+
+
+                <button
+                    class="next-question"
+                    id="nextQuestion"
+                    onclick="nextQuestion()"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+
+            <!-- GAME COMPLETE -->
+
+            <div
+                class="game-complete"
+                id="gameComplete"
+            >
+
+                <span>♡</span>
+
+                <p class="eyebrow">
+                    YOU MADE IT
+                </p>
+
+                <h3>
+                    You know me<br>
+                    <em>pretty well.</em>
+                </h3>
+
+                <p>
+                    Tapi sebenarnya nggak ada jawaban
+                    yang salah kalau pilihannya tentang
+                    kamu.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FINAL SECTION
+        =================================================== -->
+
+        <section class="final-section">
+
+            <div class="final-mark">
+                04 / 04
+            </div>
+
+            <p class="eyebrow">
+                YOU OPENED EVERYTHING
+            </p>
+
+            <h2>
+                And somehow,<br>
+                <em>you're still my favorite part.</em>
+            </h2>
+
+            <p class="final-text">
+                Happy Boyfriend Day, Deandra.
+                Kalau suatu hari kamu menemukan
+                website ini lagi, semoga kamu masih
+                bisa tersenyum seperti hari ini.
+            </p>
+
+            <div class="final-names">
+                AKBAR <span>♡</span> DEANDRA
+            </div>
+
+            <button
+                class="replay-button"
+                onclick="replayWebsite()"
+            >
+                ↻ Start again
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FOOTER
+        =================================================== -->
+
+        <footer>
+            A little place made with love.
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+  </html>
